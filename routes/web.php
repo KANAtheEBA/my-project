@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StackController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 // Route::get('/dashboard', function () {
