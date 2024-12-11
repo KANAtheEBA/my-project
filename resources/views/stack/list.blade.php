@@ -11,19 +11,22 @@
             {{session('message')}}
         </div>
         @endif
-        @foreach($games as $game)
+        <p class="text-lg font-semibold">Hello, {{$user->name}}!</p>
+                @foreach($games as $game)
         <div class="mt-4 p-8 bg-white w-full rounded-2xl">
             <h1 class="p-4 text-lg font-semibold">
                 <a href="{{route('game.show', $game)}}" class="text-blue-600">
                 {{$game->title}}
                 </a>
             </h1>
-            <div class="image"></div>
             <hr class="w-full">
             <p class="mt-4 p-4 font-semibold">
                 {{$game->platform}} /
                 {{$game->genre}}
             </p>
+            <div class="p-8">
+                <img src="{{ asset('storage/images/' . $game->image)}}" alt="">
+            </div>
             <div class="p-4 text-sm">
                 <p>
                     開発元：{{$game->developer??'-'}} / 
@@ -35,7 +38,7 @@
                     </p>
             </div>
             <div class="p-4 text-sm">
-                登録日：{{$game->created_at}}
+                登録日：{{$game->created_at->diffForHumans()}}
             </div>
         </div>
         @endforeach

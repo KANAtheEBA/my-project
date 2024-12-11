@@ -10,7 +10,7 @@
                 {{session('message')}}
             </div>
         @endif
-        <form method="post" action="{{route('stack.store')}}">
+        <form method="post" action="{{route('stack.store')}}" enctype="multipart/form-data">
         @csrf
             <div class="mt-8">
                 <div class="w-full flex flex-col">
@@ -44,11 +44,14 @@
                     <label for="publisher" class="font-semibold mt-4">パブリッシャー</label>
                     <input type="text" name= "publisher" class="w-auto py-2 border border-gray-300 rounded-md" id="publisher">
                 </div>
+
+            </div>
+
                 <div class="w-full flex flex-col">
                     <label for="image" class="font-semibold mt-4">画像</label>
-                    <input type="text" name= "image" class="w-auto py-2 border border-gray-300 rounded-md" id="image">
+                    <input type="file" name= "image" id="image">
                 </div>
-            </div>
+
             <x-primary-button class="mt-4">
                 Stack!
             </x-primary-button>

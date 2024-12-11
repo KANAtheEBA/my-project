@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Games;
+use Illuminate\Support\Facades\Storage;
 
 class StackController extends Controller
 {
@@ -20,10 +21,22 @@ class StackController extends Controller
             'purchase_date' => 'nullable|date',
             'developer' => 'nullable|max:255',
             'publisher' => 'nullable|max:255',
-            'image' => 'nullable'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024'
         ]);
 
         $validated['user_id'] = auth()->id();
+
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            // オリジナルファイル名から拡張子を取得
+            $extension = $file->getClientOriginalExtension();
+            // 現在の日時を使用してユニークなファイル名を生成
+            $fileName = now()->format('YmdHis') . '_' . uniqid() . '.' . $extension;
+            // 画像を保存
+            $file->storeAs('images', $fileName, 'public');
+            // データベースに保存するパスを設定
+            $validated['image'] = $fileName;
+        }
 
         $game = Games::create($validated);
 
@@ -33,7 +46,8 @@ class StackController extends Controller
 
     public function list() {
         $games = Games::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(5);
-        return view('stack.list', compact('games'));
+        $user = auth()->user();
+        return view('stack.list', compact('games', 'user'));
     }
 
     public function show(Games $game) {
@@ -53,8 +67,29 @@ class StackController extends Controller
             'purchase_date' => 'nullable|date',
             'developer' => 'nullable|max:255',
             'publisher' => 'nullable|max:255',
-            'image' => 'nullable'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024'
         ]);
+
+        //古い画像ファイルを保持
+        $oldImageFileName = $game->image;
+
+        if ($request->hasFile('image')) {
+
+            if ($oldImageFileName) {
+                // ストレージから古い画像を削除
+                Storage::disk('public')->delete('image/' . $oldImageFileName);
+            }
+            // 新しい画像を保存
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = now()->format('YmdHis') . '_' . uniqid() . '.' . $extension;
+            // 画像を保存
+            $file->storeAs('images', $fileName, 'public');
+            // データベースに保存するパスを設定
+            $validated['image'] = $fileName;
+
+
+        }
 
         $validated['user_id'] = auth()->id();
 
@@ -64,6 +99,10 @@ class StackController extends Controller
     }
 
     public function destroy(Request $request, Games $game) {
+        //画像が存在する場合に削除
+        if ($game->image) {
+            Storage::delete('public/images/' . $game->image);
+        }
         $game->delete();
         $request->session()->flash('message', '削除しました');
         return redirect()->route('stack.list');

@@ -35,8 +35,11 @@
                     {{$game->platform}} /
                     {{$game->genre}}
                 </p>
+                <div class="p-8">
+                <img src="{{ asset('storage/images/' . $game->image)}}" alt="">
+                </div>
             </div>
-            <div class="image"></div>
+
             <div class="p-4 text-sm">
                 <p>
                     開発元：{{$game->developer??'-'}} / 
