@@ -19,6 +19,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        \App\Models\Games::factory(3)->create();
+        if (config('app.env') === 'production') {
+            Log::error('本番環境でSeederの一括実行はできません。処理を終了します。');
+
+            return;
+        }
+        $this->call([
+            GenreSeeder::class,
+        ]);
     }
 }

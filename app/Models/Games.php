@@ -20,4 +20,8 @@ class Games extends Model
         'image',
         'user_id'
     ];
+    
+    public function genres() {
+        return $this->hasMany(Genre::class, 'game_genres')->withTimeStamps();
+    }
 }

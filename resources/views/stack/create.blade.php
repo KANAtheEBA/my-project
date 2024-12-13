@@ -23,11 +23,23 @@
                     <x-input-error :messages="$errors->get('platform')" class="mt-2"></x-input-error>
                     <input type="text" name= "platform" class="w-auto py-2 border border-gray-300 rounded-md" id="platform" value="{{old('platform')}}">
                 </div>
+
                 <div class="w-full flex flex-col">
-                    <label for="genre" class="font-semibold mt-4">ジャンル</label>
+                    <fieldset class="row mb-3">
+                        <legend class="col-md-4 col-form-label text-md-end">ジャンル</legend>
+                        <div class="col-sm-5 col-form-label">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" name="genres[]" id="jrpg" value=1
+                                class="form-check-input @error('genre') is-invalid @enderror">
+                                <label for="jrpg" class="form-check-label">JRPG</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    
                     <x-input-error :messages="$errors->get('genre')" class="mt-2"></x-input-error>                   
                     <input type="text" name= "genre" class="w-auto py-2 border border-gray-300 rounded-md" id="genre" value="{{old('genre')}}">
                 </div>
+
                 <div class="w-full flex flex-col">
                     <label for="launch_date" class="font-semibold mt-4">発売日</label>
                     <input type="date" name= "launch_date" class="w-auto py-2 border border-gray-300 rounded-md" id="launch_date">
