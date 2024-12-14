@@ -24,20 +24,22 @@
                     <input type="text" name= "platform" class="w-auto py-2 border border-gray-300 rounded-md" id="platform" value="{{old('platform')}}">
                 </div>
 
-                <div class="w-full flex flex-col">
+                <div class="w-full flex flex-col mt-4">
                     <fieldset class="row mb-3">
-                        <legend class="col-md-4 col-form-label text-md-end">ジャンル</legend>
-                        <div class="col-sm-5 col-form-label">
-                            <div class="form-check form-check-inline">
-                                <input type="checkbox" name="genres[]" id="jrpg" value=1
-                                class="form-check-input @error('genre') is-invalid @enderror">
-                                <label for="jrpg" class="form-check-label">JRPG</label>
+                        <legend class="col-md-4 col-form-label text-md-end font-semibold">ジャンル</legend>
+                        <div class="pl-3 flex flex-wrap gap-2">
+                            @foreach($genres as $genre)
+                            <div class="flex">
+                                <input type="checkbox" name="genres[]" id="genre_{{ $genre->id }}" 
+                                value="{{ $genre->id }}" class="form-check-input">
+                                <label for="genre_{{ $genre->id }}" class="form-check-label">
+                                    {{ $genre->name }}
+                                </label>
                             </div>
+                            @endforeach
                         </div>
                     </fieldset>
-                    
-                    <x-input-error :messages="$errors->get('genre')" class="mt-2"></x-input-error>                   
-                    <input type="text" name= "genre" class="w-auto py-2 border border-gray-300 rounded-md" id="genre" value="{{old('genre')}}">
+                    <x-input-error :messages="$errors->get('genres')" class="mt-2"></x-input-error>
                 </div>
 
                 <div class="w-full flex flex-col">

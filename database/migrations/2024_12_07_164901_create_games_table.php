@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('platform');
-            $table->string('genre');
             $table->date('launch_date')->nullable();
             $table->date('purchase_date')->nullable();
             $table->string('developer')->nullable();

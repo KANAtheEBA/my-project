@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('game_genres', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('game_id');
-            $table->foreignId('genre_id');
+            $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('genre_id');
             $table->timestamps();
 
             $table->foreign('game_id')

@@ -70,6 +70,11 @@ class GenreSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'name' => 'ヴァンサヴァライク',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'name' => 'ウォーキングシミュレーター',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -254,12 +259,6 @@ class GenreSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'name' => 'ヴァンサヴァライク',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
         ];
         Genre::insert($genres);
 

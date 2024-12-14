@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Games extends Model
+class Game extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'title',
         'platform',
-        'genre',
         'launch_date',
         'purchase_date',
         'developer',
@@ -22,6 +21,6 @@ class Games extends Model
     ];
     
     public function genres() {
-        return $this->hasMany(Genre::class, 'game_genres')->withTimeStamps();
+        return $this->belongsToMany(Genre::class, 'game_genres', 'game_id', 'genre_id');
     }
 }
