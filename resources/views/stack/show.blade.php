@@ -31,10 +31,16 @@
                     </form>
                 </div>
                 <hr class="w-full">
-                <p class="mt-4 font-semibold whitespace-pre-line">
-                    {{$game->platform}} /
-                    {{$game->genre}}
+                <p class="mt-4 font-semibold">
+                    プラットフォーム：{{$game->platform}} </br>
+                    ジャンル：
+                    @forelse($game->genres as $genre)
+                        {{ $genre->name }}@if(!$loop->last), @endif
+                    @empty
+                    -
+                    @endforelse
                 </p>
+
                 <div class="p-8">
                 <img src="{{ asset('storage/images/' . $game->image)}}" alt="">
                 </div>

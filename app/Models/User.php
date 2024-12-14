@@ -45,4 +45,8 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function games() {
+        return $this->hasMany(Game::class);
+    }
 }

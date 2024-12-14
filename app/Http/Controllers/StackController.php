@@ -51,9 +51,13 @@ class StackController extends Controller
     }
 
     public function list() {
-        $games = Game::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(5);
         $user = auth()->user();
-        return view('stack.list', compact('games', 'user'));
+        $games = Game::where('user_id', auth()->id())
+            ->with('genres') //イーガーローディングでリレーションを一緒に取得
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
+          return view('stack.list', compact('games', 'user'));
     }
 
     public function show(Game $game) {
@@ -68,7 +72,6 @@ class StackController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'platform' => 'required|max:255',
-            //'genres' => 'required|max:255',
             'launch_date' => 'nullable|date',
             'purchase_date' => 'nullable|date',
             'developer' => 'nullable|max:255',

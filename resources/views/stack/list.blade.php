@@ -21,8 +21,13 @@
             </h1>
             <hr class="w-full">
             <p class="mt-4 p-4 font-semibold">
-                {{$game->platform}} /
-                {{$game->genre}}
+                プラットフォーム：{{$game->platform}} </br>
+                ジャンル：
+                @forelse($game->genres as $genre)
+                    {{ $genre->name }}@if(!$loop->last), @endif
+                @empty
+                    -
+                @endforelse
             </p>
             <div class="p-8">
                 <img src="{{ asset('storage/images/' . $game->image)}}" alt="">
