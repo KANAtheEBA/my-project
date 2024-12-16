@@ -65,13 +65,16 @@ class StackController extends Controller
     }
 
     public function edit(Game $game) {
-        return view('stack.edit', compact('game'));
+        $genres = Genre::all();
+        return view('stack.edit', compact('game', 'genres'));
     }
 
     public function update(Request $request, Game $game) {
         $validated = $request->validate([
             'title' => 'required|max:255',
             'platform' => 'required|max:255',
+            'genres' => 'required|array|min:1',
+            'genres.*' => 'exists:genres,id',
             'launch_date' => 'nullable|date',
             'purchase_date' => 'nullable|date',
             'developer' => 'nullable|max:255',
@@ -97,12 +100,18 @@ class StackController extends Controller
             // データベースに保存するパスを設定
             $validated['image'] = $fileName;
 
-
         }
 
         $validated['user_id'] = auth()->id();
 
         $game->update($validated);
+
+        if ($request->has('genres')) {
+            $game->genres()->sync($request->genres);
+        } else {
+            // ジャンルが選択されていない場合は、既存のジャンルをすべて削除
+            $game->genres()->detach();
+        }
         
         return redirect()->route('game.show', compact('game'))->with('message', '更新しました');
     }

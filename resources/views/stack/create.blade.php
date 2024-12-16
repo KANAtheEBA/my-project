@@ -31,7 +31,8 @@
                             @foreach($genres as $genre)
                             <div class="flex">
                                 <input type="checkbox" name="genres[]" id="genre_{{ $genre->id }}" 
-                                value="{{ $genre->id }}" class="form-check-input">
+                                value="{{ $genre->id }}" @checked(in_array($genre->id, old('genres', [])))
+                                class="form-check-input">
                                 <label for="genre_{{ $genre->id }}" class="form-check-label">
                                     {{ $genre->name }}
                                 </label>
@@ -44,19 +45,19 @@
 
                 <div class="w-full flex flex-col">
                     <label for="launch_date" class="font-semibold mt-4">発売日</label>
-                    <input type="date" name= "launch_date" class="w-auto py-2 border border-gray-300 rounded-md" id="launch_date">
+                    <input type="date" name= "launch_date" class="w-auto py-2 border border-gray-300 rounded-md" id="launch_date" value="{{old('launch_date')}}">
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="purchase_date" class="font-semibold mt-4">購入日</label>
-                    <input type="date" name= "purchase_date" class="w-auto py-2 border border-gray-300 rounded-md" id="purchase_date">
+                    <input type="date" name= "purchase_date" class="w-auto py-2 border border-gray-300 rounded-md" id="purchase_date" value="{{old('purchase_date')}}">
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="developer" class="font-semibold mt-4">デベロッパー</label>
-                    <input type="text" name= "developer" class="w-auto py-2 border border-gray-300 rounded-md" id="developer">
+                    <input type="text" name= "developer" class="w-auto py-2 border border-gray-300 rounded-md" id="developer"  value="{{old('developer')}}">
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="publisher" class="font-semibold mt-4">パブリッシャー</label>
-                    <input type="text" name= "publisher" class="w-auto py-2 border border-gray-300 rounded-md" id="publisher">
+                    <input type="text" name= "publisher" class="w-auto py-2 border border-gray-300 rounded-md" id="publisher"  value="{{old('publisher')}}">
                 </div>
 
             </div>
