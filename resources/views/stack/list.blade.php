@@ -29,10 +29,10 @@
                     -
                 @endforelse
             </p>
-            <div class="p-8">
+            <div class="p-1">
                 <img src="{{ asset('storage/images/' . $game->image)}}" alt="">
             </div>
-            <div class="p-4 text-sm">
+            <div class="p-2 text-sm">
                 <p>
                     開発元：{{$game->developer??'-'}} / 
                     パブリッシャー：{{$game->publisher??'-'}}
@@ -42,7 +42,7 @@
                         購入日：{{$game->purchase_date??'-'}}
                     </p>
             </div>
-            <div class="p-4 text-sm">
+            <div class="p-2 text-sm">
                 登録日：{{$game->created_at->diffForHumans()}}
             </div>
         </div>

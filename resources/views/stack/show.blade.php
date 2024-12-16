@@ -41,12 +41,12 @@
                     @endforelse
                 </p>
 
-                <div class="p-8">
+                <div class="p-4">
                 <img src="{{ asset('storage/images/' . $game->image)}}" alt="">
                 </div>
             </div>
 
-            <div class="p-4 text-sm">
+            <div class="p-2 text-sm">
                 <p>
                     開発元：{{$game->developer??'-'}} / 
                     パブリッシャー：{{$game->publisher??'-'}}
