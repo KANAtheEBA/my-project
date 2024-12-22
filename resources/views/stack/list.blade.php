@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
             積んゲーリスト
         </h2>
     </x-slot>
 
-    <div class="mx-auto px-6">
+    <div class="mx-auto px-6 bg-gray-900 text-white">
         @if(session('message'))
         <div class="text-red-600 font-bold">
             {{session('message')}}
@@ -13,14 +13,14 @@
         @endif
         <p class="text-lg font-semibold">Hello, {{$user->name}}!</p>
                 @foreach($games as $game)
-        <div class="mt-4 p-8 bg-white w-full rounded-2xl">
-            <h1 class="p-4 text-lg font-semibold">
-                <a href="{{route('game.show', $game)}}" class="text-blue-600">
+        <div class="mt-4 p-8 bg-slate-800 w-full">
+            <h1 class="p-2 text-2xl font-semibold">
+                <a href="{{route('game.show', $game)}}" class="text-lime-300">
                 {{$game->title}}
                 </a>
             </h1>
             <hr class="w-full">
-            <p class="mt-4 p-4 font-semibold">
+            <p class="mt-2 p-2 font-semibold">
                 プラットフォーム：{{$game->platform}} </br>
                 ジャンル：
                 @forelse($game->genres as $genre)
@@ -32,7 +32,7 @@
             <div class="p-1">
                 <img src="{{ asset('storage/images/' . $game->image)}}" alt="">
             </div>
-            <div class="p-2 text-sm">
+            <div class="p-2">
                 <p>
                     開発元：{{$game->developer??'-'}} / 
                     パブリッシャー：{{$game->publisher??'-'}}

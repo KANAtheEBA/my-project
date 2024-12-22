@@ -89,7 +89,7 @@ class StackController extends Controller
 
             if ($oldImageFileName) {
                 // ストレージから古い画像を削除
-                Storage::disk('public')->delete('image/' . $oldImageFileName);
+                Storage::disk('public')->delete('images/' . $oldImageFileName);
             }
             // 新しい画像を保存
             $file = $request->file('image');
@@ -119,7 +119,8 @@ class StackController extends Controller
     public function destroy(Request $request, Game $game) {
         //画像が存在する場合に削除
         if ($game->image) {
-            Storage::delete('public/images/' . $game->image);
+            
+            Storage::disk('public')->delete('images/' . $game->image);
         }
         $game->delete();
         $request->session()->flash('message', '削除しました');
