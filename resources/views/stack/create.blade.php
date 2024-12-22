@@ -18,6 +18,7 @@
                     <x-input-error :messages="$errors->get('title')" class="mt-2"></x-input-error>
                     <input type="text" name= "title" class="w-auto py-2 border border-gray-300 rounded-md" id="title" value="{{old('title')}}">
                 </div>
+                <div class="result" id="js-result" name="result"></div>
                 <div class="w-full flex flex-col">
                     <label for="platform" class="font-semibold mt-4">プラットフォーム</label>
                     <x-input-error :messages="$errors->get('platform')" class="mt-2"></x-input-error>
@@ -67,9 +68,10 @@
                     <input type="file" name= "image" id="image">
                 </div>
 
-            <x-primary-button class="mt-4">
+            <x-primary-button class="my-4">
                 Stack!
             </x-primary-button>
         </form>
     </div>
+    @vite(['resources/js/main.js'])
 </x-app-layout>
