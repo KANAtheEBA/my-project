@@ -1,8 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
+    <x-slot name="header" class="flex">
+        <div class="flex font-semibold text-2xl text-gray-800 leading-tight">
             積んゲーリスト
-        </h2>
+            <div class="items-right">
+                <img src="{{ $imagePath }}" alt="">
+            </div>
+        </div>
     </x-slot>
 
     <div class="mx-auto px-6 bg-gray-900 text-white">
