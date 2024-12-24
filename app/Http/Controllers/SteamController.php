@@ -21,10 +21,7 @@ class SteamController extends Controller
                 throw new \Exception('Steam APIからのデータ取得に失敗しました');
             }
 
-            $games = array_map(function($game) {
-                $game['name'] = mb_convert_encoding($game['name'], 'UTF-8', 'auto');
-                return $game;
-            }, $games);
+
 
             $data = $response->json();
 
@@ -34,6 +31,11 @@ class SteamController extends Controller
             }
 
             return $data['applist']['apps'];
+
+            $games = array_map(function($game) {
+                $game['name'] = mb_convert_encoding($game['name'], 'UTF-8', 'auto');
+                return $game;
+            }, $games);
         });
 
         $keyword = $request->query('q', '');
@@ -46,6 +48,10 @@ class SteamController extends Controller
                 return mb_strpos(mb_strtolower($game['name']), $keyword);
                 \Log::info('検索対象データ:', $games);
             });
+
+            if (empty($filteredGames)) {
+                return response()->json(['message' => '該当するゲームが見つかりませんでした。'], 200);
+            }
 
             // 結果を最初の10件のみに制限
             $filteredGames = array_slice($filteredGames, 0, 10);
@@ -65,8 +71,7 @@ class SteamController extends Controller
         } catch (\Exception $e) {
             \Log::error('検索処理エラー: ' . $e->getMessage()); // ログ追加
             return response()->json([
-                'error' => 'エラーが発生しました: ',
-                'message' => $e->getMessage(),
+                'error' => $e->getMessage(),
                 'trace' => config('app.debug') ? $e->getTraceAsString() : null
             ], 500);
         }
