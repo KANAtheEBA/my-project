@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            個別表示
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            編集
         </h2>
     </x-slot>
 
@@ -11,9 +11,9 @@
                 {{session('message')}}
             </div>
         @endif
-        <div class="bg-white w-full rouded-2xl">
+        <div class="bg-slate-800 text-white w-full rouded-2xl">
             <div class="p-4 mt-4">
-                <h1 class="text-lg font-semibold">
+                <h1 class="text-lg text-lime-300 font-semibold">
                     {{$game->title}}
                 </h1>
                 <div class="text-right flex">

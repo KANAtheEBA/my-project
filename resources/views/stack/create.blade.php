@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             積む
         </h2>
     </x-slot>
-    <div class="max-w-7xl mx auto px-6">
+    <div class="max-w-7xl mx auto px-6 text-white">
         @if(session('message'))
             <div class="text-red-600 font-bold">
                 {{session('message')}}
@@ -30,7 +30,7 @@
                         <legend class="col-md-4 col-form-label text-md-end font-semibold">ジャンル</legend>
                         <div class="pl-3 flex flex-wrap gap-2">
                             @foreach($genres as $genre)
-                            <div class="flex">
+                            <div class="flex font-thin">
                                 <input type="checkbox" name="genres[]" id="genre_{{ $genre->id }}" 
                                 value="{{ $genre->id }}" @checked(in_array($genre->id, old('genres', [])))
                                 class="form-check-input">
@@ -68,7 +68,7 @@
                     <input type="file" name= "image" id="image">
                 </div>
 
-            <x-primary-button class="my-4">
+            <x-primary-button class="my-8">
                 Stack!
             </x-primary-button>
         </form>

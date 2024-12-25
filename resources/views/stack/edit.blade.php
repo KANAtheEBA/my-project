@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            積む
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            編集
         </h2>
     </x-slot>
     <div class="max-w-7xl mx auto px-6">
@@ -13,7 +13,7 @@
         <form method="post" action="{{route('game.update', $game)}}" enctype="multipart/form-data">
         @csrf
         @method('patch')
-            <div class="mt-8">
+            <div class="mt-8 text-white">
                 <div class="w-full flex flex-col">
                     <label for="title" class="font-semibold mt-4">タイトル</label>
                     <x-input-error :messages="$errors->get('title')" class="mt-2"></x-input-error>
@@ -30,7 +30,7 @@
                         <legend class="col-md-4 col-form-label text-md-end font-semibold">ジャンル</legend>
                         <div class="pl-3 flex flex-wrap gap-2">
                             @foreach($genres as $genre)
-                            <div class="flex">
+                            <div class="flex font-thin">
                                 <input type="checkbox" name="genres[]" id="genre_{{ $genre->id }}" 
                                 value="{{ $genre->id }}" @checked(old('genres') ? in_array($genre->id, old('genres')) : $game->genres->contains($genre->id))
                                 class="form-check-input">
@@ -66,7 +66,7 @@
                     <input type="file" name= "image" id="image">
                 </div>
             </div>
-            <x-primary-button class="mt-4">
+            <x-primary-button class="my-8">
                 Update!
             </x-primary-button>
         </form>

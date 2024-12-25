@@ -1,8 +1,11 @@
 <x-app-layout>
     <x-slot name="header" class="flex">
-        <div class="flex font-semibold text-2xl text-gray-800 leading-tight">
-            積んゲーリスト
-            <div class="items-right">
+        <div class="flex justify-between items-center w-full text-white leading-tight">
+            <div class="font-semibold text-2xl">
+                積んゲーリスト
+                <div class="text-lg font-semibold">Hello, {{$user->name}}!</div>
+            </div>            
+            <div>
                 <img src="{{ $imagePath }}" alt="">
             </div>
         </div>
@@ -14,7 +17,7 @@
             {{session('message')}}
         </div>
         @endif
-        <p class="text-lg font-semibold">Hello, {{$user->name}}!</p>
+        
                 @foreach($games as $game)
         <div class="mt-4 p-8 bg-slate-800 w-full">
             <h1 class="p-2 text-2xl font-semibold">
@@ -35,7 +38,7 @@
             <div class="p-1">
                 <img src="{{ asset('storage/images/' . $game->image)}}" alt="">
             </div>
-            <div class="p-2">
+            <div class="p-2 font-thin">
                 <p>
                     開発元：{{$game->developer??'-'}} / 
                     パブリッシャー：{{$game->publisher??'-'}}
@@ -45,7 +48,7 @@
                         購入日：{{$game->purchase_date??'-'}}
                     </p>
             </div>
-            <div class="p-2 text-sm">
+            <div class="p-2 text-sm font-thin">
                 登録日：{{$game->created_at->diffForHumans()}}
             </div>
         </div>
