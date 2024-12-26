@@ -63,21 +63,28 @@ class StackController extends Controller
         // ゲーム数に応じた画像パスを設定
         if ($gameCount === 0) {
             $imagePath = asset('img/level0.jpg'); // 所有数0
+            $rank = "荒野";
         } elseif ($gameCount === 1) {
             $imagePath = asset('img/level1.jpg'); // 所有数1
+            $rank = "雨";
         } elseif ($gameCount >= 2 && $gameCount <= 4) {
             $imagePath = asset('img/level2.jpg'); // 所有数2-4
+            $rank = "川";
         } elseif ($gameCount >= 5 && $gameCount <= 7) {
             $imagePath = asset('img/level5.jpg'); // 所有数5-7
+            $rank = "蕾";
         } elseif ($gameCount >= 8 && $gameCount <= 10) {
             $imagePath = asset('img/level8.jpg'); // 所有数8-10
+            $rank = "開花";
         } elseif ($$gameCount >= 11 && $gameCount <= 14) {
             $imagePath = asset('img/level11.jpg'); // 所有数11-14
+            $rank = "繁茂";
         } else {
             $imagePath = asset('img/level15.jpg'); // 所有数15以上
+            $rank = "結実";
         }
 
-        return view('stack.list', compact('games', 'user', 'imagePath'));
+        return view('stack.list', compact('games', 'user', 'imagePath', 'rank'));
         
     }
 

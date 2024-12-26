@@ -3,10 +3,15 @@
         <div class="flex justify-between items-center w-full text-white leading-tight">
             <div class="font-semibold text-2xl">
                 積んゲーリスト
-                <div class="text-lg font-semibold">Hello, {{$user->name}}!</div>
+                <div class="text-lg font-thin">Hello, {{$user->name}}!</div>
             </div>            
-            <div>
-                <img src="{{ $imagePath }}" alt="">
+            <div class="relative flex">
+                <img src="{{ $imagePath }}" alt="" class="">
+                <div class="absolute">
+                    <p class="flex bg-gray-900 p-1">
+                    {{ $rank }}
+                    </p>
+                </div>
             </div>
         </div>
     </x-slot>

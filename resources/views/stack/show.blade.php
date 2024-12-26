@@ -13,24 +13,24 @@
         @endif
         <div class="bg-slate-800 text-white w-full rouded-2xl">
             <div class="p-4 mt-4">
-                <h1 class="text-lg text-lime-300 font-semibold">
+                <h1 class="text-2xl text-lime-300 font-semibold">
                     {{$game->title}}
                 </h1>
                 <div class="text-right flex">
                     <a href="{{route('game.edit', $game)}}" class="flex-1">
-                        <x-primary-button>
+                        <x-primary-button class="bg-fuchsia-800 hover:bg-fuchsia-400">
                             編集
                         </x-primary-button>
                     </a>
                     <form method="post" action="{{route('game.destroy', $game)}}" class="flex-2">
                         @csrf
                         @method('delete')
-                        <x-primary-button class="bg-red-700 ml-2">
+                        <x-primary-button class="bg-gray-700 hover:bg-red-500 ml-2">
                             削除
                         </x-primary-button>
                     </form>
                 </div>
-                <hr class="w-full">
+                <hr class="w-full mt-2">
                 <p class="mt-4 font-semibold">
                     プラットフォーム：{{$game->platform}} </br>
                     ジャンル：
