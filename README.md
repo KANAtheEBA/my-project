@@ -1,5 +1,5 @@
 # 積んゲーMeter
-【URL】  
+【URL】https://my-project-proud-sky-7772.fly.dev/
 
 ## 概要
 買ったはいいがろくに起動もせず積んだままになっているゲーム、  
