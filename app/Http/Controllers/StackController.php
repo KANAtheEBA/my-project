@@ -76,7 +76,7 @@ class StackController extends Controller
         } elseif ($gameCount >= 8 && $gameCount <= 10) {
             $imagePath = asset('img/level8.jpg'); // 所有数8-10
             $rank = "開花";
-        } elseif ($$gameCount >= 11 && $gameCount <= 14) {
+        } elseif ($gameCount >= 11 && $gameCount <= 14) {
             $imagePath = asset('img/level11.jpg'); // 所有数11-14
             $rank = "繁茂";
         } else {

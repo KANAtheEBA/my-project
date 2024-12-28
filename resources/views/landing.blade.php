@@ -18,7 +18,7 @@
             </style>
         @endif
     </head>
-    <body class="bg-black">
+    <body class="bg-gray-900">
         <div class="flex p-3">
             @if (Route::has('login'))
                 <nav class="text-white flex flex-1 justify-end gap-4">
@@ -56,7 +56,7 @@
                 今日も一日頑張れる</br>
             </p>
         </div>
-        <div class="bg-neutral-700 p-10 gap-5 grid grid-cols-2 grid-rows-2">
+        <div class="bg-slate-800 p-10 gap-5 grid grid-cols-2 grid-rows-2">
             <div class="bg-white p-4">
                 <p class="font-bold">積め、徳(ゲーム)を</p>
                 徳を積んだ分、レベルも積みあがる。</br>
@@ -71,13 +71,13 @@
             <div class="bg-white p-4">
                 <p class="font-bold">既プレイ先輩のレビュー</p>
                 あなたの積んゲーをプレイ済みの先輩たちの</br>
-                秀逸コメントをランダムで放流！</br>
+                秀逸コメントをランダムで放流！(Coming Soon)</br>
                 思わず起動してしまっても誰も責めない。
             </div>
             <div class="bg-white p-4">
                 <p class="font-bold">Steam Storeを参照可能</p>
                 Steam Storeで販売中のタイトルなら、</br>
-                簡単に検索＆反映できる！(Coming soon)
+                簡単に検索＆登録できる！
             </div>
         </div>
     
