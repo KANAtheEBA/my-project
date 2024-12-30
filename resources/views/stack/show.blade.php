@@ -18,9 +18,9 @@
                 </h1>
                 <div class="text-right flex">
                     <a href="{{route('game.edit', $game)}}" class="flex-1">
-                        <x-primary-button class="bg-fuchsia-800 hover:bg-fuchsia-400">
+                        <x-custom-button class="bg-fuchsia-800 hover:bg-fuchsia-400">
                             編集
-                        </x-primary-button>
+                        </x-custom-button>
                     </a>
                     <form method="post" action="{{route('game.destroy', $game)}}" class="flex-2">
                         @csrf

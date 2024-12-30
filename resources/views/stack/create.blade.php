@@ -68,9 +68,9 @@
                     <input type="file" name= "image" id="image">
                 </div>
 
-            <x-primary-button class="my-8 bg-fuchsia-800 hover:bg-fuchsia-400">
+            <x-custom-button class="my-8 bg-fuchsia-800 hover:bg-fuchsia-400">
                 Stack!
-            </x-primary-button>
+            </x-custom-button>
         </form>
     </div>
     @vite(['resources/js/main.js'])
