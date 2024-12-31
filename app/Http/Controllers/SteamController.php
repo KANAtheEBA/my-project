@@ -88,4 +88,14 @@ class SteamController extends Controller
             ], 500);
         }
     }
+
+    // 画像URL検証メソッド
+    public function verifyImageUrl($url) {
+        try {
+            $response = Http::head($url);
+            return $response->successful() && str_contains($response->header('Content-Type'), 'image');
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
 }

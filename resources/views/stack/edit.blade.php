@@ -17,12 +17,12 @@
                 <div class="w-full flex flex-col">
                     <label for="title" class="font-semibold mt-4">タイトル</label>
                     <x-input-error :messages="$errors->get('title')" class="mt-2"></x-input-error>
-                    <input type="text" name= "title" class="w-auto py-2 border border-gray-300 rounded-md" id="title" value="{{old('title', $game->title)}}">
+                    <input type="text" name= "title" class="w-auto py-2 border border-gray-300 rounded-md text-black" id="title" value="{{old('title', $game->title)}}">
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="platform" class="font-semibold mt-4">プラットフォーム</label>
                     <x-input-error :messages="$errors->get('platform')" class="mt-2"></x-input-error>
-                    <input type="text" name= "platform" class="w-auto py-2 border border-gray-300 rounded-md" id="platform" value="{{old('platform', $game->platform)}}">
+                    <input type="text" name= "platform" class="w-auto py-2 border border-gray-300 rounded-md text-black" id="platform" value="{{old('platform', $game->platform)}}">
                 </div>
 
                 <div class="w-full flex flex-col mt-4">
@@ -46,19 +46,19 @@
 
                 <div class="w-full flex flex-col">
                     <label for="launch_date" class="font-semibold mt-4">発売日</label>
-                    <input type="date" name= "launch_date" class="w-auto py-2 border border-gray-300 rounded-md" id="launch_date" value="{{old('launch_date', $game->launch_date)}}">
+                    <input type="date" name= "launch_date" class="w-auto py-2 border border-gray-300 rounded-md text-black" id="launch_date" value="{{old('launch_date', $game->launch_date)}}">
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="purchase_date" class="font-semibold mt-4">購入日</label>
-                    <input type="date" name= "purchase_date" class="w-auto py-2 border border-gray-300 rounded-md" id="purchase_date" value="{{old('purchase_date', $game->purchase_date)}}">
+                    <input type="date" name= "purchase_date" class="w-auto py-2 border border-gray-300 rounded-md text-black" id="purchase_date" value="{{old('purchase_date', $game->purchase_date)}}">
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="developer" class="font-semibold mt-4">デベロッパー</label>
-                    <input type="text" name= "developer" class="w-auto py-2 border border-gray-300 rounded-md" id="developer" value="{{old('developer', $game->developer)}}">
+                    <input type="text" name= "developer" class="w-auto py-2 border border-gray-300 rounded-md text-black" id="developer" value="{{old('developer', $game->developer)}}">
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="publisher" class="font-semibold mt-4">パブリッシャー</label>
-                    <input type="text" name= "publisher" class="w-auto py-2 border border-gray-300 rounded-md" id="publisher" value="{{old('publisher', $game->publisher)}}">
+                    <input type="text" name= "publisher" class="w-auto py-2 border border-gray-300 rounded-md text-black" id="publisher" value="{{old('publisher', $game->publisher)}}">
                 </div>
 
                 <div class="w-full flex flex-col">
@@ -66,9 +66,9 @@
                     <input type="file" name= "image" id="image">
                 </div>
             </div>
-            <x-primary-button class="my-8">
+            <x-custom-button class="my-8 bg-fuchsia-800 hover:bg-fuchsia-400">
                 Update!
-            </x-primary-button>
+            </x-custom-button>
         </form>
     </div>
 </x-app-layout>

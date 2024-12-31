@@ -62,16 +62,54 @@
                 </div>
 
             </div>
-
-                <div class="w-full flex flex-col">
-                    <label for="image" class="font-semibold mt-4">画像</label>
-                    <input type="file" name= "image" id="image">
+                <!-- Steam画像プレビュー -->
+                <div class="mb-4">
+                    <label for="" class="block text-sm font-mediun">ゲーム画像</label>
+                    <div id="image-preview" class="mt-2">
+                        <img src="{{ $config['defaultImageUrl'] ?? asset('img/no-image.png') }}" alt="プレビュー" class="max-w-xs h-auto">
+                    </div>                    
                 </div>
+                <!-- 手動画像アップロード -->
+                <div class="w-full flex flex-col">
+                    <label for="image" class="block font-semibold mt-4">画像</label>
+                    <input type="file" name= "image" id="image" accept=".jpg,.jpeg,.png" class="mt-1 block w-full">
+                    <p class="mt-1 text-sm">
+                        最大{{ $config['maxFileSize'] }}KBまで(対応形式: {{ implode(',', $config['allowedExtensions']) }})
+                    </p>
+                </div>
+
+                <!-- Steam画像URL用隠しフィールド -->
+                 <input type="hidden" name="steam_image_url" id="steam_image_url">
 
             <x-custom-button class="my-8 bg-fuchsia-800 hover:bg-fuchsia-400">
                 Stack!
             </x-custom-button>
         </form>
+
+        @push('scripts')
+        <script>
+            // ファイルアップロード時のプレビュー表示
+            document.getElementById('image').addEventlistener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const previewContainer = document.getElementById('{{ $config['imagePreviewId'] }}');
+                        const img = previewContainer.querySelector('img') || document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'max-w-xs h-auto';
+                        if (!img.parentNode) {
+                            previewContainer.appendChild(img);
+                        }
+                    }
+                    reader.readAsDataURL(file);
+
+                    // Steam画像URLをクリア
+                    document.getElementByID('steam_image_url').value = '';
+                }
+            });
+        </script>
+        @endpush
     </div>
     @vite(['resources/js/main.js'])
 </x-app-layout>

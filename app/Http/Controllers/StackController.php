@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\Game;
 use App\Models\Genre;
 use Illuminate\Support\Facades\Storage;
@@ -19,12 +20,39 @@ class StackController extends Controller
             'purchase_date' => 'nullable|date',
             'developer' => 'nullable|max:255',
             'publisher' => 'nullable|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+            'steam_image_url' => 'nullable|url' // Steam画像がある場合のバリエーション
         ]);
 
         $validated['user_id'] = auth()->id();
 
-        if($request->hasFile('image')) {
+        // Steam画像URLが提供されている場合、画像をダウンロード
+        if (!empty($validated['steam_image_url'])) {
+            try {
+                $steamController = new SteamController();
+                if ($steamController->verifyImageUrl($validated['steam_image_url'])) {
+                    $imageContent = Http::get($validated['steam_image_url'])->body();
+                    $fileName = 'steam_' . now()->format('YmdHis') . '_' . uniqid() . '.jpg';
+                    Storage::disk('public')->put('images/' . $fileName, $imageContent);
+                    $validated['image'] = $fileName;
+                    \Log::info('画像保存パス:', [
+                        'fileName' => $fileName,
+                        'fullPath' => Storage::path('images/' . $fileName)
+                    ]);
+                    // 保存後、もう一度パス確認
+                    if (storage::disk('public')->exists('public/images/' . $fileName)) {
+                        \Log::info('ファイル保存成功:', ['fileName' => $fileName]);
+                    } else {
+                        \Log::error('ファイル保存失敗:', ['fileName' => $fileName]);
+                    }
+                }
+            } catch (\Exception $e) {
+                \Log::error('Steam画像ダウンロードエラー:', [
+                    'url' => $validated['steam_image_url'],
+                    'error' => $e->getMessage()
+                ]);
+            }
+        } elseif ($request->hasFile('image')) {
             $file = $request->file('image');
             // オリジナルファイル名から拡張子を取得
             $extension = $file->getClientOriginalExtension();
@@ -35,6 +63,8 @@ class StackController extends Controller
             // データベースに保存するパスを設定
             $validated['image'] = $fileName;
         }
+
+        unset($validated['steam_image_url']); // DB保存前に不要なフィールドを削除
 
         $game = Game::create($validated);
 
@@ -47,7 +77,14 @@ class StackController extends Controller
 
     public function create() {
         $genres = Genre::all();
-        return view('stack.create', compact('genres'));
+        // Steam API感染の設定
+        $config = [
+            'maxFileSize' => config('app.max_upload_size', 1024), // KB単位
+            'allowedExtensions' => ['jpg', 'jpeg', 'png'],
+            'imagePreviewId' => 'image-preview',
+            'defaultImageUrl' => asset('img/no-image.png'), // 画像プレビューエリアのダミー画像(public/imgに配置)
+        ];
+        return view('stack.create', compact('genres', 'config'));
     }
 
     public function list() {
