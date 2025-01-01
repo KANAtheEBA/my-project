@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('stack.list') }}">
-                        <x-application-logo width="110" class="block fill-current text-gray-800" />
+                        <x-application-logo width="20" class="block fill-current text-gray-800" />
                     </a>
                 </div>
 
@@ -25,7 +25,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48" >
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-200 bg-slate-800" hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium text-gray-200 bg-slate-800" hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -74,7 +74,7 @@
                 リスト
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('stack.create')" :active="request()->routeIs('stack.create')">
-                ゲームを積む
+                積む
             </x-responsive-nav-link>
         </div>
 

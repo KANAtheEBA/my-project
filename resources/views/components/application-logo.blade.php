@@ -4,7 +4,7 @@
 
 @props(['width'])
 <svg {{ $attributes->merge(['width' => $width.'px']) }} id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 600 450" style="enable-background:new 0 0 600 450;" xml:space="preserve">
+	viewBox="230 105 143 245" style="enable-background:new 230 105 143 245;" xml:space="preserve">
 <!--<rect x="0" y="0" style="fill:#161242;" width="600" height="450"/>-->
 <g>
 	<g>

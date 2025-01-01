@@ -1,8 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-white leading-tight">
-            編集
-        </h2>
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-xl text-white leading-tight">
+                編集
+            </h2>
+        </div>
     </x-slot>
     <div class="max-w-7xl mx auto px-6">
         @if(session('message'))
@@ -66,8 +68,8 @@
                     <input type="file" name= "image" id="image">
                 </div>
             </div>
-            <x-custom-button class="my-8 bg-fuchsia-800 hover:bg-fuchsia-400">
-                Update!
+            <x-custom-button class="my-8 text-white bg-fuchsia-800 hover:bg-fuchsia-400">
+                更新
             </x-custom-button>
         </form>
     </div>

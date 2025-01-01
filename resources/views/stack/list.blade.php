@@ -1,19 +1,15 @@
 <x-app-layout>
     <x-slot name="header" class="flex">
-        <div class="flex justify-between items-center w-full text-white leading-tight">
-            <div class="font-semibold text-2xl">
-                積んゲーリスト
-                <div class="text-lg font-thin">Hello, {{$user->name}}!</div>
-            </div>            
-            <div class="relative flex">
-                <img src="{{ $imagePath }}" alt="" class="">
-                <div class="absolute">
-                    <p class="flex bg-gray-900 p-1">
-                    {{ $rank }}
-                    </p>
+        <div class="flex w-full text-white leading-tight">                    
+            <div class="relative flex w-full">
+                <img src="{{ $imagePath }}" alt="" class="w-full" />
+                <div class="absolute inset-0 flex items-center">
+                    <p class="p-8 text-white text-4xl font-extrabold">積んゲーリスト</p>
                 </div>
+                <div class="absolute inset-0 flex items-end justify-end">
+                    <p class="px-8 py-4 text-xl">Lv.{{ $rank }}</p>                    
+                </div>   
             </div>
-        </div>
     </x-slot>
 
     <div class="mx-auto px-6 bg-gray-900 text-white">

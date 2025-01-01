@@ -116,9 +116,12 @@ class StackController extends Controller
         } elseif ($gameCount >= 11 && $gameCount <= 14) {
             $imagePath = asset('img/level11.jpg'); // 所有数11-14
             $rank = "繁茂";
-        } else {
+        } elseif ($gameCount >= 15 && $gameCount <= 20) {
             $imagePath = asset('img/level15.jpg'); // 所有数15以上
             $rank = "結実";
+        } else {
+            $imagePath = asset('img/level21.jpg'); // 所有数21以上
+            $rank = "繁栄";
         }
 
         return view('stack.list', compact('games', 'user', 'imagePath', 'rank'));

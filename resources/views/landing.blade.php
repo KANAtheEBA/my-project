@@ -19,7 +19,7 @@
         @endif
     </head>
     <body class="bg-gray-900">
-        <div class="flex p-3">
+        <div class="flex p-1">
             @if (Route::has('login'))
                 <nav class="text-white flex flex-1 justify-end gap-4">
                     @auth

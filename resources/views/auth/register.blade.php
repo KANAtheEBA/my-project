@@ -39,14 +39,13 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+        <div class="items-center justify-end mt-8 text-center">
+            <x-custom-button class="mb-4 py-3 w-full bg-cyan-900 text-sm text-white hover:bg-cyan-300">
+                {{ __('Register') }}
+            </x-custom-button>
+            <a class="underline text-sm text-white hover:text-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
         </div>
     </form>
 </x-guest-layout>

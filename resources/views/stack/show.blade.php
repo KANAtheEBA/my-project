@@ -1,8 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-white leading-tight">
-            編集
-        </h2>
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h2 class="font-semibold text-xl text-white leading-tight">
+                編集
+            </h2>
+        </div>
     </x-slot>
 
     <div class="max-w-7xl mx-auto px-6">
@@ -25,9 +27,9 @@
                     <form method="post" action="{{route('game.destroy', $game)}}" class="flex-2">
                         @csrf
                         @method('delete')
-                        <x-primary-button class="bg-gray-700 hover:bg-red-500 ml-2">
+                        <x-custom-button class="bg-gray-700 hover:bg-red-500 ml-2">
                             削除
-                        </x-primary-button>
+                        </x-custom-button>
                     </form>
                 </div>
                 <hr class="w-full mt-2">
@@ -46,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="p-2 text-sm">
+            <div class="px-4 text-sm">
                 <p>
                     開発元：{{$game->developer??'-'}} / 
                     パブリッシャー：{{$game->publisher??'-'}}

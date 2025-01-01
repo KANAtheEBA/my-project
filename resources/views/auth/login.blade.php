@@ -27,21 +27,20 @@
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <input id="remember_me" type="checkbox" class="border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <span class="ms-2 text-sm text-white">{{ __('Remember me') }}</span>
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="items-center justify-end mt-4">
+            <x-custom-button class="mb-4 py-3 w-full bg-cyan-900 text-sm text-white hover:bg-cyan-300">
+                {{ __('Log in') }}
+            </x-custom-button>
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                <a class="block underline text-sm text-white text-center hover:text-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
     </form>
 </x-guest-layout>
