@@ -15,10 +15,14 @@
 
 ## 使用技術
 * Docker 27.2.0
-* Laravel 11.31
-* Laravel Breeze 1.8
+* Laravel Framework 11.31
+    * PHP 8.4.1
+    * JavaScript
+    * Laravel Breeze 1.8
+    * TailwindCSS
 * PostgreSQL 17.0
 * Steamworks Web API
+* Fly.io
 
 ## ER図
 ![ERdiagram](https://github.com/user-attachments/assets/907d73ff-c02f-45e2-9250-e79713f54db5)
