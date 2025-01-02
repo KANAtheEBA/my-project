@@ -8,10 +8,9 @@
 
 ゲームのジャンルやプラットフォーム、  
 任意の画像を登録可能です。   
-また、積んであるゲームの好評レビューが  
-ランダム表示される機能もあります。
 
 ![landing_page](https://github.com/user-attachments/assets/6b88aaac-8f3d-4fd6-aeed-56bcaaf20538)
+![demo_images](https://github.com/user-attachments/assets/cf51fe4c-0e6e-4811-b725-b3f282089db0)
 
 ## 使用技術
 * Docker 27.2.0
@@ -19,10 +18,15 @@
     * PHP 8.4.1
     * JavaScript
     * Laravel Breeze 1.8
-    * TailwindCSS
+    * TailwindCSS 3.1.0
 * PostgreSQL 17.0
 * Steamworks Web API
 * Fly.io
+
+## こだわった点
+Steam Storeにて取り扱っている作品は  
+タイトルの一部より検索できるようにしました。  
+タイトルと作品画像がワンタッチで登録できます。
 
 ## ER図
 ![ERdiagram](https://github.com/user-attachments/assets/907d73ff-c02f-45e2-9250-e79713f54db5)
@@ -38,3 +42,7 @@
 
 ## ワイヤーフレーム
 ![wireflame_image](https://github.com/user-attachments/assets/323a7740-232f-4803-8d8a-c69839e234c0)
+
+## Coming Soon
+積んであるゲームの好評レビューが  
+ランダム表示される機能を実装中です。
