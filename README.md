@@ -6,16 +6,12 @@
 通称「積んゲー」を管理するアプリです。  
 自らの、手つかずの財産を眺めるだけで疲れが取れるという効果があります。  
 
-いつ頃購入したものかや、ゲームのジャンル、  
-プラットフォーム、任意の画像を登録しておけます。  
+ゲームのジャンルやプラットフォーム、  
+任意の画像を登録可能です。 
+また、積んであるゲームの好評レビューが  
+ランダム表示される機能もあります。
 
-* Steam Store販売タイトルは自動検索・反映が可能
-* 積めば積むほどえらい。レベルUP機能完備
-* 積んであるゲームの好評レビューをランダムで放流
-
-![image1](https://github.com/user-attachments/assets/88c41d5f-4781-46ca-8483-4a13ee3d1808)
-![image2](https://github.com/user-attachments/assets/ae643bab-e02c-4d43-8477-6ba783faa266)
-
+![landing_page](https://github.com/user-attachments/assets/6b88aaac-8f3d-4fd6-aeed-56bcaaf20538)
 
 ## 使用技術
 * Docker 27.2.0
@@ -24,7 +20,8 @@
 * PostgreSQL 17.0
 * Steamworks Web API
 
-## インフラ構成図
+## ER図
+![ERdiagram](https://github.com/user-attachments/assets/907d73ff-c02f-45e2-9250-e79713f54db5)
 
 ## 機能一覧
 * ユーザー登録、ログイン機能(Laravel Breeze)
@@ -34,3 +31,6 @@
 * ペジネーション機能
 * レベルUP機能
 * レビュー表示機能(Steamworks Web API)
+
+## ワイヤーフレーム
+![wireflame_image](https://github.com/user-attachments/assets/323a7740-232f-4803-8d8a-c69839e234c0)

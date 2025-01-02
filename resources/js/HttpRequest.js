@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
     baseURL: '/api', // Laravelのエンドポイントを指定
-    timeout: 10000,
+    timeout: 15000,
 });
 
 // instance

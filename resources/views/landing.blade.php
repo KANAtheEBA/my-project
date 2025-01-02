@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -18,7 +19,7 @@
             </style>
         @endif
     </head>
-    <body class="bg-gray-900">
+    <body class="bg-black">
         <div class="flex p-1">
             @if (Route::has('login'))
                 <nav class="text-white flex flex-1 justify-end gap-4">
@@ -57,27 +58,55 @@
             </p>
         </div>
         <div class="bg-slate-800 p-10 gap-5 grid grid-cols-2 grid-rows-2">
-            <div class="bg-white p-4">
-                <p class="font-bold">積め、徳(ゲーム)を</p>
-                徳を積んだ分、レベルも積みあがる。</br>
-                消費したら、また積み上げれば良い。
+            <div class="bg-white p-4 flex items-center w-full gap-8">
+                <div class="flex pl-4">
+                    <i class="fa-solid fa-gamepad text-7xl"></i>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="font-bold">積め、徳(ゲーム)を</p>
+                    <div>
+                        徳を積んだ分、レベルも積みあがる。</br>
+                        消費したら、また積み上げれば良い。
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-4">
-                <p class="font-bold">プラットフォームを横断して整理</p>
-                「あっちでもう積んであったのに、</br>
-                こっちのセールでまた買っちゃったんだが…」</br>
-                うっかりも確信犯も一目で振り返れる。
+            <div class="bg-white p-4 flex items-center w-full gap-8">
+                <div class="flex pl-4">
+                    <i class="fa-solid fa-maximize text-7xl"></i>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="font-bold">プラットフォームを横断して整理</p>
+                    <div>
+                        「あっちでもう積んであったのに、</br>
+                        こっちのセールでまた買っちゃったんだが…」</br>
+                        うっかりも確信犯も一目で振り返れる。
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-4">
-                <p class="font-bold">既プレイ先輩のレビュー</p>
-                あなたの積んゲーをプレイ済みの先輩たちの</br>
-                秀逸コメントをランダムで放流！(Coming Soon)</br>
-                思わず起動してしまっても誰も責めない。
+            <div class="bg-white p-4 flex items-center w-full gap-8">
+                <div class="flex pl-4">
+                    <i class="fa-solid fa-thumbs-up text-7xl"></i>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="font-bold">既プレイ先輩のレビュー</p>
+                    <div>
+                        あなたの積んゲーをプレイ済みの先輩たちの</br>
+                        秀逸コメントをランダムで放流！(Coming Soon)</br>
+                        思わず起動してしまっても誰も責めない。
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-4">
-                <p class="font-bold">Steam Storeを参照可能</p>
-                Steam Storeで販売中のタイトルなら、</br>
-                簡単に検索＆登録できる！
+            <div class="bg-white p-4 flex items-center w-full gap-8">
+                <div class="flex pl-4">
+                    <i class="fa-brands fa-steam-symbol text-7xl"></i>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="font-bold">Steam Storeを参照可能</p>
+                    <div>
+                        Steam Storeで販売中のタイトルなら、</br>
+                        簡単に検索＆登録できる！
+                    </div>
+                </div>
             </div>
         </div>
     
