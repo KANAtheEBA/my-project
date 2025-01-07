@@ -22,7 +22,7 @@
             </a>
         </div>
     </div>
-        <div class="min-h-screen flex flex-col sm:justify-center items-center sm:pt-0 bg-white">
+        <div class="min-h-screen flex flex-col justify-center items-center sm:pt-0 bg-white">
             <div class="items-center justify-center">
                 <x-application-logo width="60" class="fill-current" />
             </div>
@@ -30,7 +30,7 @@
                 Login
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 p-8 bg-black shadow-md overflow-hidden">
+            <div class="w-full max-w-md mt-6 p-8 bg-black shadow-md overflow-hidden">
                 {{ $slot }}
             </div>
         </div>

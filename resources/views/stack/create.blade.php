@@ -65,7 +65,7 @@
 
             </div>
                 <!-- Steam画像プレビュー -->
-                <div class="mb-4">
+                <div class="mt-4 mb-4">
                     <label for="" class="block text-sm font-mediun">ゲーム画像</label>
                     <div id="image-preview" class="mt-2">
                         <img src="{{ $config['defaultImageUrl'] ?? asset('img/no-image.png') }}" alt="プレビュー" class="max-w-xs h-auto">

@@ -45,7 +45,7 @@
             <div class="relative w-full">
                 <img src="{{ asset('img/main_img.jpg')}}" alt="" class="w-full" />
                 <div class="absolute inset-0 flex text-center items-center justify-center">
-                    <p class="text-white text-8xl font-extrabold">積んゲー</br>Meter</p>
+                    <p class="text-white md:text-8xl text-6xl font-extrabold">積んゲー</br>Meter</p>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                 今日も一日頑張れる</br>
             </p>
         </div>
-        <div class="bg-slate-800 p-10 gap-5 grid grid-cols-2 grid-rows-2">
+        <div class="bg-slate-800 p-10 gap-5 grid md:grid-cols-2 sm:grid-cols4">
             <div class="bg-white p-4 flex items-center w-full gap-8">
                 <div class="flex pl-4">
                     <i class="fa-solid fa-gamepad text-7xl"></i>
